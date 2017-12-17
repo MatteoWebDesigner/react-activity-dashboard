@@ -1,0 +1,90 @@
+@import "../../styles/_yoti-variables";
+
+.SideBar {
+    position: fixed;
+    top: $navbar-height;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+    will-change: background-color, width;
+    
+    animation: SideBarIsClose 0.2s ease-out;
+    animation-fill-mode: forwards;
+
+    &.is-open {
+        animation: SideBarIsOpen 0.3s ease-out;
+        animation-fill-mode: forwards;
+    }
+}
+
+.SideBar_bar {
+    height: 100%;
+    width: $yoti-portal-sidebar-width;
+    background-color: $color-16;
+    border-right: 1px solid $color-3a;
+    transform: translateX(-$yoti-portal-sidebar-width);
+    transition: transform .3s;
+    will-change: transform;
+    cursor: auto;
+
+    &.is-open {
+        transform: translateX(0);
+    }
+}
+
+.SideBar_nav {
+    display: grid;
+}
+
+.SideBar_nav-link {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 15px;
+    color: $color-primary-3;
+    background-color: transparent; 
+    transition: background-color .5s;
+    font-size: 14px;
+    
+    &:hover,
+    &:focus,
+    &.is-active {
+        color: $color-primary-3;
+        text-decoration: none;
+        background-color: $color-grey-2; 
+    }
+
+    :first-child {
+        margin-right: 15px;
+    }
+}
+
+@keyframes SideBarIsOpen {
+    0% {
+        width: 0;
+    }
+
+    1% {
+        width: 100%;
+        background-color: rgba(0,0,0,0);
+    }
+
+    100% {
+        background-color: rgba(0,0,0,.3);
+    }
+}
+
+@keyframes SideBarIsClose {
+    0% {
+        background-color: rgba(0,0,0,.3);
+    }
+    
+    99% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+        background-color: rgba(0,0,0,0);
+    }
+}

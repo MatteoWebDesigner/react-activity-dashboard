@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Activity from "../Activity";
 import Pages from "../Pages";
-import TopNav from "../../components/TopNav"
+import TopNav from "../../components/TopNav";
+import SideBar from "../../components/SideBar";
 
 import './index.scss';
 
@@ -24,17 +25,16 @@ class App extends Component {
     return (
       <div className="App">
         <TopNav/>
-        
-        <aside >
-          <NavLink exact to="/">Activity</NavLink>
-          <NavLink exact to="/pages">Pages</NavLink>
-        </aside>
 
-        <main>
-          <pre>{this.state.data}</pre>
-          <Route exact path="/" component={Activity} />
-          <Route exact path="/pages" component={Pages} />
-        </main>
+        <div className="App_content">
+          <SideBar />
+
+          <main>
+            <Route exact path="/" component={Activity} />
+            <Route exact path="/pages" component={Pages} />
+          </main>
+        </div>
+        
       </div>
     );
   }

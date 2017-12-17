@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { toogleVisibility } from '../../store/actions/sideBar'
 import Icon from '../Icon';
 
 import './index.scss';
 
 class TopNav extends Component { 
-    constructor(props) {
-        super(props);
-
-        this.openMenu = this.openMenu.bind(this);
-    }
-
-    openMenu() {
-
-    }
-
     render(props) { 
         return (
             <header className="TopNav">
                 <div className="container-fluid navbar navbar-default navbar-fixed-top">
                     <div className="TopNav_layout">
-                        <div className="TopNav_menu" onClick={this.openMenu}>
+                        <div className="TopNav_menu" onClick={this.props.toogleVisibility}>
                             <Icon name="menu"/>
                         </div>
 
@@ -44,4 +37,8 @@ class TopNav extends Component {
     }
 }
 
-export default TopNav;
+const mapDispatchToProps = dispatch => bindActionCreators({
+    toogleVisibility,
+}, dispatch)
+
+export default connect(null, mapDispatchToProps)(TopNav);

@@ -1,9 +1,9 @@
 import React from "react";
 
 const Pages = () => (
-    <div>
+    <div className="container">
         <h1>Pages</h1>
-        <p>Hello Medium!</p>
+        <p>Just a new page</p>
     </div>
 )
 

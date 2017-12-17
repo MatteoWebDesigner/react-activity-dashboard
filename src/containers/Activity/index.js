@@ -1,21 +1,36 @@
-import React from 'react';
-import { push } from 'react-router-redux';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-const Home = props => (
-  <div>
-    <h1>Activity</h1>
-    <p>Welcome Activity!</p>
-    <button onClick={() => props.changePage()}>Go to Pages via redux</button>
-  </div>
-);
+class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { data: "" }
+  }
+
+  componentDidMount() {
+    fetch('/api/receipts/')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ data: JSON.stringify(data) });
+      })
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <h1>Activity</h1>
+        <h2>Activity</h2>
+        <p>See a record of everyone you have shared details with</p>
+
+        <pre>{this.state.data}</pre>
+      </div>
+    )
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  changePage: () => push('/pages')
+  
 }, dispatch)
 
-export default connect(
-  null, 
-  mapDispatchToProps
-)(Home);
+export default connect(null, mapDispatchToProps)(Home);
