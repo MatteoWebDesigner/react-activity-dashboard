@@ -1,0 +1,85 @@
+.btn {
+	padding: 12px 20px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 500;
+	min-width: 154px;
+}
+
+@mixin primaryButton($background-color, $color: null, $background-color-hover: null) {
+	background-color: $background-color;
+	color: $color;
+	-webkit-transition: background-color 200ms ease-in-out;
+    -moz-transition: background-color 200ms ease-in-out;
+    -o-transition: background-color 200ms ease-in-out;
+    -ms-transition: background-color 200ms ease-in-out;
+    transition: background-color 200ms ease-in-out;
+
+	&:hover,
+	&:focus,
+	&.focus,
+	&.btn-selected {
+		background-color:darken($background-color, 9%);
+		background-color: $background-color-hover; //if specified override the previous one
+		color: $color;
+	}
+
+	&.disabled {
+		background-color: $background-color;
+	}
+}
+
+.btn-primary-1 { @include primaryButton($color-1, $color-17); }
+.btn-primary-2 {
+	@include primaryButton($color-17, $color-1, $color-16);
+	border: 2px solid $color-15;
+}
+.btn-primary-3 { @include primaryButton($color-3, $color-17); }
+.btn-primary-4 { 
+	@include primaryButton($color-17, $color-11, $color-16);
+	border: 2px solid $color-15; 
+}
+.btn-primary-5 { 
+	@include primaryButton($color-17, $color-13, $color-16);
+	border: 2px solid $color-15; 
+}
+
+
+
+
+@mixin secondaryButton($color) {
+	color: $color;
+	&:hover, &:focus, &.focus, &.btn-selected {
+		color:darken($color, 13%);
+	}
+
+	&.disabled {
+		color: $color;
+	}
+}
+
+[class*="btn-secondary-"] {
+	background-color: transparent;
+	outline: none;
+	&:focus { outline: none; }
+	&:active { box-shadow: none; }
+}
+
+
+.btn-secondary-1 { @include secondaryButton($color-1); }
+
+.btn-secondary-2 { @include secondaryButton($color-3); }
+
+.btn-secondary-3 { @include secondaryButton($color-11); }
+
+.btn-secondary-4 { @include secondaryButton($color-13); }
+
+.btn-secondary-5 { @include secondaryButton($color-3); }
+
+.btn-secondary-6 { @include secondaryButton($color-17); }
+
+
+.btn-spaced-group {
+	.btn { margin-right: 20px; }
+	.btn:last-child{ margin-right: 0px; }
+}

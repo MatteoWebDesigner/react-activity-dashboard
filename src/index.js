@@ -6,12 +6,13 @@ import store, { history } from './store'
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
-import './index.scss';
+import './styles/_main.scss';
 
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
+                <i className="icon icon-action-back-dark"></i>
                 <App />
             </div>
         </ConnectedRouter>

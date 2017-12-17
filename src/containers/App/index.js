@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import Activity from "../Activity";
 import Pages from "../Pages";
+import TopNav from "../../components/TopNav"
 
 import './index.scss';
 
@@ -22,11 +23,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          header
-        </header>
+        <TopNav/>
         
-        <aside>
+        <aside >
           <NavLink exact to="/">Activity</NavLink>
           <NavLink exact to="/pages">Pages</NavLink>
         </aside>

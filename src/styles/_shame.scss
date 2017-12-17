@@ -1,0 +1,62 @@
+
+//Bootstrap material has these styles in core
+.dropdown-menu {
+  border: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  .divider {
+    background-color: rgba(229, 229, 229, 0.12);
+  }
+  li {
+    overflow: hidden;
+    position: relative;
+    a:hover {
+      background-color: transparent;
+      color: $brand-primary;
+    }
+  }
+}
+
+.gray-bg {
+  background-color: $color-15;
+  border-radius: 60px;
+}
+
+.logo-container {
+  height: 80px;
+  width: 80px;
+  padding: 13px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid $color-16;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+    max-height: 100%;
+  }
+}
+
+//Can't see any element like this in boostrap material
+.boxed-container {
+  border: 1px solid $color-15;
+  border-radius: $border-radius-base;
+  margin-bottom: 20px;
+  
+}
+
+.vertical-aligned-block {
+  transform: translateY(-50%);
+  margin-top: 50%;
+}
+
+// Utility class for cursor during hover
+.cursor-pointer:hover {
+    cursor: pointer;
+}

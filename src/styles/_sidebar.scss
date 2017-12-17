@@ -1,0 +1,147 @@
+$hover-color: $color-15;
+
+.sidebar-open #yoti-menu-sidebar,
+#yoti-menu-sidebar.sidebar-open {
+	left : 0;
+	.app-overlay {
+		opacity:1;
+		display:block;
+	}
+}
+
+#yoti-menu-sidebar {
+	transition: left 250ms cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+	transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+	
+	background-color: $color-16;
+	position: fixed;
+	bottom: 0;
+	left: -$yoti-portal-sidebar-width;
+	top: $yoti-portal-sidebar-height;
+	width: $yoti-portal-sidebar-width;
+	z-index: 1000;
+
+	&.sidebar-no-icons {
+		ul.first-level {
+			> li > a,
+			li ul {
+				//adding padding for the missing icon	
+				padding: 18px 0 18px 40px;
+			}
+		}
+	}
+
+	.app-overlay {
+		position: fixed;
+		background-color: rgba(0, 0, 0, 0.3);
+		top: $navbar-height;
+		left: 0; //$yoti-portal-sidebar-width;
+		bottom: 0;
+		right: 0;
+		z-index:-1;
+		display: none;
+  		opacity: 0;
+	}
+
+	> ul {
+		overflow: auto;
+		background-color: $color-16;
+		height: 100%;
+	}
+
+	ul li {
+		&.open {
+			background-color: $color-15;
+			&:hover {background-color: $color-15 !important;}
+		}
+
+		a {
+			padding-top: 11px;
+			padding-bottom: 11px;
+			color: $color-3;
+			display: block;
+			position: relative;
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: 500;
+
+			.section-icon {
+				margin-bottom: -2px;
+				margin-left:17px;
+				margin-right:17px;
+				opacity: 0.7;
+			}
+
+			&.active-parent .section-icon{ opacity: 1; }
+
+			&.parent .icon-menu_dropdown_open,
+			&.parent .icon-menu_dropdown_closed {
+				position: absolute;
+				right: 20px;
+				margin-top: -2px;
+				top: 50%;
+			}
+
+			&.parent span { 
+				color: $color-3;
+				vertical-align: middle;
+			}
+
+			&.child{
+				opacity: 0.6;
+				position: relative;
+				&:hover { opacity: 1; }
+				.icon {
+					margin-bottom: -2px;
+					margin-left: 17px;
+					margin-right: 17px;
+					visibility: hidden;
+				}
+				&.active-child { opacity: 1; }
+			}
+		}
+
+		//Second level menu (child)
+		ul {
+			padding-top: 10px;
+			padding-left: 56px;
+			color: $color-4b;
+			a {
+				font-weight: 500;
+				padding-top: 0px;
+				padding-bottom: 8px;
+			}
+		}
+
+		.child.active-child { visibility: visible; }
+
+		&.active-parent a:before { left: 42px; }
+	}
+
+	ul.first-level li:hover { background-color: $hover-color; }
+}
+
+//Don't hide the sidebar on large screen
+@media (min-width: $screen-lg-min + $yoti-portal-sidebar-width) {
+	#main-wrapper {
+		padding-left: $yoti-portal-sidebar-width; //Push content to the right of the sidebar
+	}
+
+	#navbar-menu-button {
+		visibility:hidden;
+	}
+
+	#yoti-menu-sidebar { left : 0; }
+
+	.sidebar-open #yoti-menu-sidebar .app-overlay,
+	#yoti-menu-sidebar.sidebar-open .app-overlay { display:none; }
+}
+
+.sidebar-hidden {
+	#main-wrapper {
+		padding-left:0;
+	}
+	#navbar-menu-button {
+		visibility:hidden;
+	}
+}

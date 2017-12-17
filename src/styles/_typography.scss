@@ -1,0 +1,93 @@
+
+
+/*****************************************************************/
+/***************************TYPOGRAPHY****************************/
+/*****************************************************************/
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: $color-2;
+}
+
+h1     { line-height: 60px; font-weight: 500; }
+h2     { line-height: 48px; font-weight: 500; }
+h3     { line-height: 32px; font-weight: 500; }
+h4     { line-height: 28px; font-weight: 500; }
+h5     { line-height: 24px; font-weight: 500; }
+h6     { line-height: 24px; font-weight: 500; }
+p      { line-height: 28px; }
+p.p2   { line-height: 28px; color: $color-3; }
+p.p3   { line-height: 20px; font-size: 14px; }
+.hint  { line-height: 12px; font-size: 12px; font-style: italic; color: $color-3; }
+.small { line-height: 12px; font-size: 12px; color: $color-3; }
+a      { line-height: 28px; font-weight: 500; color: $color-1; }
+
+a.seamless {
+    color:inherit;
+    text-decoration: inherit;
+}
+
+.text-bold { font-weight: 600; }
+.text-medium { font-weight: 500; }
+.text-regular { font-weight: 400; }
+.font-base-size { font-size: $font-size-base; }
+
+//Dark background typography
+.dark-bg {
+    color: $color-17;
+    h1    { color: $color-14; }
+    h2    { color: $color-17; }
+    h3    { color: $color-17; }
+    h4    { color: $color-17; }
+    h5    { color: $color-17; }
+    h6    { color: $color-17; }
+    p     { color: $color-17; }
+    p.p2  { color: $color-4;  }
+    p.p3  { color: $color-4;  }
+    .hint { color: $color-17; }
+}
+
+
+
+code {
+    display:block;
+    padding:20px;
+    margin: 0 0 20px;
+}
+
+/**************************************************/
+/****************Mobile Typography*****************/
+/**************************************************/
+
+@media (max-width: $screen-sm-max) {
+    h1    { font-size: 36px; line-height: 40px; }
+    h2    { font-size: 32px; line-height: 36px; }
+    h3    { font-size: 22px; line-height: 28px; }
+    h4    { font-size: 18px; line-height: 24px; }
+    h5    { font-size: 18px; line-height: 24px; }
+    h6    { font-size: 18px; line-height: 24px; }
+    p     { line-height: 24px; }
+    p.p2  { line-height: 24px; }
+    a     { line-height: 24px; }
+}
+
+/**************************************************/
+/********************Alignments********************/
+/**************************************************/
+@media (min-width: $screen-sm-min) {
+    .text-left-sm { text-align: left; }
+    .text-right-sm { text-align: right; }
+    .text-center-sm { text-align: center; }
+}
+
+@media (min-width: $screen-md-min) {
+    .text-left-md { text-align: left; }
+    .text-right-md { text-align: right; }
+    .text-center-md { text-align: center; }
+}
+
+@media (min-width: $screen-lg-min) {
+    .text-left-lg { text-align: left; }
+    .text-right-lg { text-align: right; }
+    .text-center-lg { text-align: center; }
+}

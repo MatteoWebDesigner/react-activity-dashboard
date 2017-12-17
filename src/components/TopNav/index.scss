@@ -1,0 +1,46 @@
+@import "../../styles/_yoti-variables";
+
+.TopNav {
+    height: $navbar-height;
+}
+
+.TopNav_layout {
+    display: grid;
+    grid-template-columns: min-content min-content 1fr min-content min-content;
+    grid-template-areas: "menu logo space user-status user-picture";
+    align-items: center;
+}
+
+.TopNav_menu {
+    display: flex;
+    align-items: center;
+    grid-area: menu;
+    height: $navbar-height;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.TopNav_logo {
+    grid-area: logo;
+    line-height: 0;
+}
+
+.TopNav_connected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: $navbar-height;
+    background-color: $color-1a;
+    grid-area: user-status;
+    font-size: 14px;
+}
+
+.TopNav_connected-status {
+    margin-right: 15px;
+}
+
+.TopNav_user-picture {
+    grid-area: user-picture;
+    padding: 0 15px;
+}

@@ -1,0 +1,19 @@
+.tabs {
+    .btn {
+        text-transform: none;
+    }
+
+    .btn-selected {
+        color:$color-1;
+        border-bottom:2px solid $color-1;
+    }
+}
+
+
+@media (max-width: $screen-sm-max) {
+	.tabs {
+	    .btn {
+        	min-width: 144px;
+		}
+	}
+}

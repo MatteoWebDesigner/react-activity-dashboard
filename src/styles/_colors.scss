@@ -1,0 +1,115 @@
+/*****************************************************************/
+/***************************COLORS********************************/
+/*****************************************************************/
+
+$colors:  "1"   $color-1,
+          "1a"  $color-1a,
+          "1b"  $color-1b,
+          "1c"  $color-1c,
+          "2"   $color-2,
+          "2a"  $color-2a,
+          "2b"  $color-2b,
+          "2c"  $color-2c,
+          "3"   $color-3,
+          "3a"  $color-3a,
+          "3b"  $color-3b,
+          "3c"  $color-3c,
+          "4"   $color-4,
+          "4a"  $color-4a,
+          "4b"  $color-4b,
+          "4c"  $color-4c,
+          "5"   $color-5,
+          "5a"  $color-5a,
+          "5b"  $color-5b,
+          "5c"  $color-5c,
+          "6"   $color-6,
+          "6a"  $color-6a,
+          "6b"  $color-6b,
+          "6c"  $color-6c,
+          "7"   $color-7,
+          "7a"  $color-7a,
+          "7b"  $color-7b,
+          "7c"  $color-7c,
+          "8"   $color-8,
+          "8a"  $color-8a,
+          "8b"  $color-8b,
+          "8c"  $color-8c,
+          "9"   $color-9,
+          "9a"  $color-9a,
+          "9b"  $color-9b,
+          "9c"  $color-9c,
+          "10"  $color-10,
+          "10a" $color-10a,
+          "10b" $color-10b,
+          "10c" $color-10c,
+          "11"  $color-11,
+          "11a" $color-11a,
+          "11b" $color-11b,
+          "11c" $color-11c,
+          "12"  $color-12,
+          "12a" $color-12a,
+          "12b" $color-12b,
+          "12c" $color-12c,
+          "13"  $color-13,
+          "13a" $color-13a,
+          "13b" $color-13b,
+          "13c" $color-13c,
+          "14"  $color-14,
+          "15"  $color-15,
+          "16"  $color-16,
+          "17"  $color-17;
+
+@each $tuple in $colors {
+  $name: nth($tuple, 1);
+  $color: nth($tuple, 2);
+
+  .bg-c-#{$name} { background-color: $color}
+  .text-c-#{$name} { color: $color }
+}
+
+
+/*****************************************************************/
+/************************DEPRECATED******************************/
+/*****************************************************************/
+
+/* PRIMARY BACKGROUND COLORS */
+
+$primary-colors: $color-primary-1, $color-primary-2, $color-primary-3, $color-primary-4;
+
+@for $i from 1 through length($primary-colors) {
+    .bg-primary-#{$i} { background-color: nth($primary-colors, $i); }
+    .text-color-primary-#{$i} { color: nth($primary-colors, $i); }
+}
+
+/* NOTIFICATIONS BACKGROUND COLORS */
+
+$notifications-colors: $color-notifications-1, $color-notifications-2, $color-notifications-3;
+
+@for $i from 1 through length($notifications-colors) {
+    .bg-notifications-#{$i} { background-color: nth($notifications-colors, $i); }
+    .text-color-notifications-#{$i} { color: nth($notifications-colors, $i); }
+}
+
+/* GREY BACKGROUND COLORS */
+
+$grey-colors: $color-grey-1, $color-grey-2, $color-grey-3, $color-grey-4, $color-grey-5;
+
+@for $i from 1 through length($grey-colors) {
+    .bg-grey-#{$i} { background-color: nth($grey-colors, $i); }
+    .text-color-grey-#{$i} { color: nth($grey-colors, $i); }
+}
+
+/* SECONDARY BACKGROUND COLORS */
+
+$secondary-colors: $color-secondary-1, $color-secondary-2, $color-secondary-3,
+                   $color-secondary-4, $color-secondary-5, $color-secondary-6,
+                   $color-secondary-7, $color-secondary-8, $color-secondary-9,
+                   $color-secondary-10, $color-secondary-11, $color-secondary-12;
+
+@for $i from 1 through length($secondary-colors) {
+    .bg-secondary-#{$i} { background-color: nth($secondary-colors, $i); }
+    .text-color-secondary-#{$i} { color: nth($secondary-colors, $i); }
+}
+
+
+

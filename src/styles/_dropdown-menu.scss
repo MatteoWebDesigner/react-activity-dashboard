@@ -1,0 +1,35 @@
+.dropdown-menu-wrapper {
+    .dropdown-toggle {
+        margin-bottom: 0;
+        box-shadow: none !important;
+        text-align: left;
+        border-radius: 4px;
+    }
+
+    &.open .dropdown-toggle {
+        border-radius: 4px 4px 0 0;
+    }
+
+    ul.dropdown-menu {
+        box-shadow: none;
+        padding: 0;
+        top: 45px;
+
+
+        li.btn {
+            margin: 0;
+            text-align: left;
+
+            &:not(:last-child) {
+                border-bottom: none;
+                border-radius: 0;
+            }
+
+            &:last-child {
+                border-radius: 0 0 4px 4px;
+            }
+
+        }
+
+    }
+}

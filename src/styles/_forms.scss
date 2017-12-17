@@ -1,0 +1,303 @@
+$input-icon-width: 27px;
+
+.form-group {
+	position: relative;
+	padding-bottom: 36px;
+
+	.help-block {
+		display: block;
+		clear:both;
+		font-style: italic;
+		color: $color-3;
+	}
+
+	.character-count {
+		font-size: 12px;
+		font-style: italic;
+		color: $color-3;
+		position: absolute;
+		right: 0;
+		bottom: -18px;
+	}
+
+	label.control-label {
+		color: $color-3;
+		&.radio-label {
+			font-size: $font-size-base;
+			line-height:28px;
+		}
+	}
+
+	&:not(.is-empty) {
+		label.control-label {
+			color: $color-1;
+		}
+	}
+
+	&.has-error {
+		label.control-label,
+		.help-block,
+		.character-count {
+			color: $color-13
+		}
+	}
+
+	&.has-success.is-focused .character-count {
+		color: $color-1;
+	}
+
+	.input-group {
+		width: 100%;
+	}
+
+	.input-group.optional label:after {
+		content:" (optional)"
+	}
+
+	&.has-icon {
+		label {
+			padding-left: $input-icon-width;
+		}
+
+		.icon {
+			position: absolute;
+			left: 0;
+			bottom: 16px;
+		}
+	}
+
+    .fixedText {
+        position: absolute;
+        bottom:14px;
+        display:none;
+    }
+
+    &.has-icon .fixedText {
+		left: $input-icon-width;
+    }
+
+    &.label-static,
+    &.label-floating.is-focused,
+    &.label-floating:not(.is-empty) {
+        .fixedText {
+            display: inline-block;
+        }
+    }
+
+	//override bootstrap material to remove ripples
+	input[type=checkbox] {
+
+	  &:checked {
+	    & + .checkbox-material .check:before { animation: none; }
+	    & + .checkbox-material:before { animation: none; }
+	    & + .checkbox-material .check:after { animation: none; }
+	  }
+
+	  &:not(:checked) {
+	    & + .checkbox-material:before { animation: none; }
+	    & + .checkbox-material .check:after { animation: none; }
+	  }
+	}
+
+	label input[type=radio]:not(:checked) ~ .check:after,
+	label input[type=radio]:checked ~ .check:after {
+		animation: none;
+	}
+
+
+	&.has-success {
+		@include form-group-validation-state(has-success, $color-3);
+
+		&.has-success label.control-label{
+			color: $color-3;
+		}
+
+		&.is-focused {
+			@include form-group-validation-state(has-success, $brand-primary);
+		}
+
+		&.has-success .help-block,
+		&.is-focused.has-success .help-block {
+			color:$color-3;
+		}
+	}
+}
+
+.form-control,
+.form-group .form-control {
+	background-size: 0 1px, 100% 1px;
+}
+
+//TextArea
+.form-group.text-area {
+    textarea {
+        padding: 5px;
+        height: 120px;
+        border: 1px solid $mdb-input-underline-color;
+        background: none !important;
+    }
+
+    label.control-label {
+        padding-bottom: 7px;
+    }
+
+    &.has-success {
+        label.control-label {
+            color:$color-3;
+            font-size: 16px;
+        }
+    }
+
+    &.has-error.is-focused {
+        textarea {
+            border-color: $color-13;
+        }
+    }
+
+    &.has-success.is-focused {
+        textarea {
+            border-color: $brand-primary;
+        }
+    }
+}
+
+
+//Radio
+.form-group {
+    &.has-success {
+        label.control-label.radio-label {
+            color: $color-3;
+        }
+    }
+}
+
+.dropdown-menu-wrapper {
+	.dropdown-toggle {
+		margin-bottom: 0;
+		box-shadow: none !important;
+		text-align: left;
+		border-radius: 4px;
+	}
+
+	&.open .dropdown-toggle {
+		border-radius: 4px 4px 0 0;
+	}
+
+	ul.dropdown-menu {
+		box-shadow: none;
+		padding: 0;
+		top: 45px;
+
+
+		li.btn {
+			margin: 0;
+			text-align: left;
+
+			&:not(:last-child) {
+				border-bottom: none;
+				border-radius: 0;
+			}
+
+			&:last-child {
+				border-radius: 0 0 4px 4px;
+			}
+
+		}
+
+	}
+}
+//Dropdown (option input) component
+.dropdown-select {
+	ul {
+		padding-left:0;
+		li:not(.divider) {
+			display:block;
+			a {
+				padding-top:7px;
+				padding-bottom:7px;
+			}
+		}
+	}
+
+	.dropdown-input-container {
+		position:relative;
+		.dropdown-icon {
+			position: absolute;
+			right: 4px;
+			top: 21px;
+		}
+	}
+
+	.dropdown-menu-container {
+		position:relative;
+		top:-46px; //to balance the input space for errors
+
+		.dropdown-menu {
+			right: 0; //force with 100%
+			max-height: 262px;
+			overflow: auto;
+			top: 1px;
+
+			li {
+				cursor: pointer;
+				&:hover {
+					background-color: $color-16;
+				}
+			}
+		}
+	}
+
+	.title {
+		border-bottom: 1px solid $color-15;
+		margin-bottom: 10px;
+	}
+}
+
+//Checkbox
+.checkbox {
+	label {
+        color: $color-3;
+				margin-left: 30px;
+				display: block;
+    }
+	.checkbox-material{
+		margin-right: 10px;
+		margin-left: -30px;
+		.check {
+			border-radius: $border-radius-base;
+			border-width: 2px;
+		}
+	}
+}
+
+
+//Radio
+.radio-wrapper {
+	margin-top:0;
+	padding-bottom:0;
+}
+
+.radio {
+	margin-top: 28px;
+	margin-bottom: 28px;
+
+	input[type=radio]:checked ~ .check {
+		transform: scale3d(0.55, 0.55, 1);
+	}
+
+	label {
+		line-height: 1.6;
+	    padding-left: 37px;
+
+		.circle,
+		.check {
+		    height: 20px;
+		    width: 20px;
+		}
+
+		span { left: 0; }
+	}
+}
+
+
+

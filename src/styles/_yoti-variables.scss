@@ -1,0 +1,201 @@
+/*****************************************************************/
+/***************************COLORS********************************/
+/*****************************************************************/
+
+$color-1: #2D9FFF;
+$color-1a: #D5ECFF;
+$color-1b: #81C5FF;
+$color-1c: #175080;
+
+$color-2: #333B40;
+$color-2a: #D6D8D9;
+$color-2b: #85898C;
+$color-2c: #262C30;
+
+$color-3: #67717E;
+$color-3a: #E1E3E5;
+$color-3b: #A4AAB2;
+$color-3c: #474E57;
+
+$color-4: #B6BFCB;
+$color-4a: #F0F2F5;
+$color-4b: #D3D9E0;
+$color-4c: #7F858D;
+
+$color-5: #09D2B0;
+$color-5a: #CFF6EF;
+$color-5b: #A0ECDF;
+$color-5c: #06927A;
+
+$color-6: #00CAE8;
+$color-6a: #CDF1F6;
+$color-6b: #6AD6E5;
+$color-6c: #048193;
+
+$color-7: #2B64FB;
+$color-7a: #D5E0FE;
+$color-7b: #80A2FD;
+$color-7c: #1E45AF;
+
+$color-8: #8076E9;
+$color-8a: #E6E4FA;
+$color-8b: #B3ADF2;
+$color-8c: #5952A2;
+
+$color-9: #D52E7B;
+$color-9a: #F7D5E5;
+$color-9b: #E682B0;
+$color-9c: #AA2462;
+
+$color-10: #FFE517;
+$color-10a: #FFFAD1;
+$color-10b: #FFEF74;
+$color-10c: #CCB713;
+
+$color-11: #39C48E;
+$color-11a: #D7F3E8;
+$color-11b: #88DCBB;
+$color-11c: #1D6247;
+
+$color-12: #FFB946;
+$color-12a: #FFF1DA;
+$color-12b: #FFD590;
+$color-12c: #BF8B35;
+
+$color-13: #FE5F55;
+$color-13a: #FFDFDD;
+$color-13b: #FE9F99;
+$color-13c: #CB4C44;
+
+$color-14: #DFDFDF;
+
+$color-15: #EAEAEA;
+
+$color-16: #F5F5F5;
+
+$color-17: #FFFFFF;
+
+/*****************************************************************/
+/***************************TYPOGRAPHY****************************/
+/*****************************************************************/
+$font-family-sans-serif:  'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-size-base: 16px !default;
+
+$font-size-h1: 52px;
+$font-size-h2: 40px;
+$font-size-h3: 24px;
+$font-size-h4: 20px;
+$font-size-h5: 18px;
+$font-size-h6: $font-size-base;
+$line-height-base: 1.55;
+
+/*****************************************************************/
+/******************************LAYOUT*****************************/
+/*****************************************************************/
+
+// sidebar width 
+// used by both sidebar and the main content
+$yoti-portal-sidebar-width : 240px;
+$yoti-portal-sidebar-height : 62px;
+$border-radius-base: 4px;
+
+//navbar
+$navbar-height:60px;
+
+/*****************************************************************/
+/******************************Buttons*****************************/
+/*****************************************************************/
+$btn-border-radius-base: 2px;
+$btn-border-radius-large: 2px;
+$btn-border-radius-small: 2px;
+
+
+/*****************************************************************/
+/******************************Alerts*****************************/
+/*****************************************************************/
+$alert-padding: 20px;
+$alert-border-radius: 4px;
+
+$alert-warning-bg: $color-2;
+$alert-warning-border: $color-2;
+$alert-warning-text: $color-17;
+
+$alert-success-bg: $color-2;
+$alert-success-border: $color-2;
+$alert-success-text: $color-17;
+
+$alert-danger-bg: $color-2;
+$alert-danger-border: $color-2;
+$alert-danger-text: $color-17;
+
+$alert-info-bg: $color-2;
+$alert-info-border: $color-2;
+$alert-info-text: $color-17;
+
+/*****************************************************************/
+/******************************Modal*****************************/
+/*****************************************************************/
+$modal-header-border-color: transparent;
+
+/*****************************************************************/
+/******************************Progress*****************************/
+/*****************************************************************/
+$progress-border-radius: 0;
+
+/*****************************************************************/
+/*******************************Code******************************/
+/*****************************************************************/
+$code-color: $color-5;
+$code-bg: $color-3c;
+
+/*****************************************************************/
+/******************************Navbar*****************************/
+/*****************************************************************/
+$navbar-default-color: $color-3b;
+$navbar-padding-vertical: 15px;
+
+/*****************************************************************/
+/*******************************Forms*****************************/
+/*****************************************************************/
+$mdb-label-top-margin-base: 8px;
+$mdb-input-underline-color: $color-4 !default;
+$input-color: $color-2;
+
+/*****************************************************************/
+/**********************DEPRECATED COLORS**************************/
+/*****************************************************************/
+/* PRIMARY */
+
+$color-primary-1: #2D9FFF;
+$color-primary-2: #333B40;
+$color-primary-3: #67717E;
+$color-primary-4: #FFFFFF;
+
+/* NOTIFICATIONS */
+
+$color-notifications-1: #39C48E;
+$color-notifications-2: #FFB946;
+$color-notifications-3: #FE5F55;
+
+/* GREY */
+
+$color-grey-1: #F5F5F5;
+$color-grey-2: #EAEAEA;
+$color-grey-3: #DFDFDF;
+$color-grey-4: #BFC2C4;
+$color-grey-5: #9DA3A5;
+
+/* SECONDARY */
+
+$color-secondary-1: #F97273;
+$color-secondary-2: #E0B334;
+$color-secondary-3: #09D2B0;
+$color-secondary-4: #8895A7;
+$color-secondary-5: #8076E9;
+$color-secondary-6: #D52E7B;
+$color-secondary-7: #E96932;
+$color-secondary-8: #057D71;
+$color-secondary-9: #4B5C63;
+$color-secondary-10: #402C83;
+$color-secondary-11: #b6bfcb;
+$color-secondary-12: #007EE5;

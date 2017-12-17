@@ -1,0 +1,39 @@
+.togglebutton {
+    padding: 0 15px 5px 15px;
+
+    label {
+        margin-bottom:0;
+        color: $color-3;
+
+        .toggle:after {
+            box-shadow: none;
+            top:-3px;
+            background-color: $color-14;
+        }
+
+        .toggle,
+        input[type=checkbox][disabled] + .toggle {
+            height: 14px;
+        }
+
+        input[type=checkbox] + .toggle {
+            background-color: $color-4b;
+        }
+
+        input[type=checkbox]:checked + .toggle {
+            background-color: #9ee1c7;
+
+            &:after {
+               background-color: $color-11;
+            }
+        }
+
+        input[type=checkbox]:checked + .toggle.blue {
+            background-color: #98d0fd;
+
+            &:after {
+                background-color: #36a1fc;
+            }
+        }
+    }
+}

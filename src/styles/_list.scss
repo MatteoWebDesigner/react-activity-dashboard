@@ -1,0 +1,35 @@
+.list-header {
+  font-weight: 500;
+  background-color: $color-16;
+  border: 1px solid $color-15;
+  color: $color-3;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.list-item {
+  border-bottom: 1px solid $color-15;
+  border-left: 1px solid $color-15;
+  border-right: 1px solid $color-15;
+  display: table;
+  padding: 10px 0;
+  position: relative;
+  vertical-align: top;
+
+  .image-container {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  &.application-card .image-container {
+    border: 1px solid $color-16;
+  } 
+}

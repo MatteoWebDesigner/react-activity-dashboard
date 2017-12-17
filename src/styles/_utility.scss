@@ -1,0 +1,95 @@
+//--------vertical rhythm
+// THESE ARE DEPRECATED IN FAVOUR OF 4PX BASELINE FOUND BELOW
+$vertical-spacing: 20px;
+
+@for $i from 0 through 10 {
+    .margin-xs-top-#{$i} { margin-top: $vertical-spacing*$i;}
+    .margin-xs-bottom-#{$i} { margin-bottom: $vertical-spacing*$i;}
+    .padding-xs-top-#{$i} { padding-top: $vertical-spacing*$i;}
+    .padding-xs-bottom-#{$i} { padding-bottom: $vertical-spacing*$i;}
+    .padding-xs-left-#{$i} { padding-left: $vertical-spacing*$i;}
+    .padding-xs-right-#{$i} { padding-right: $vertical-spacing*$i;}
+}
+@media (min-width: $screen-sm-min) {
+    @for $i from 0 through 10 {
+        .margin-sm-top-#{$i} { margin-top: $vertical-spacing*$i;}
+        .margin-sm-bottom-#{$i} { margin-bottom: $vertical-spacing*$i;}
+        .padding-sm-top-#{$i} { padding-top: $vertical-spacing*$i;}
+        .padding-sm-bottom-#{$i} { padding-bottom: $vertical-spacing*$i;}
+        .padding-sm-left-#{$i} { padding-left: $vertical-spacing*$i;}
+        .padding-sm-right-#{$i} { padding-right: $vertical-spacing*$i;}
+    }
+}
+@media (min-width: $screen-md-min) {
+    @for $i from 0 through 10 {
+        .margin-md-bottom-#{$i} { margin-bottom: $vertical-spacing*$i;}
+        .margin-md-top-#{$i} { margin-top: $vertical-spacing*$i;}
+        .padding-md-top-#{$i} { padding-top: $vertical-spacing*$i;}
+        .padding-md-bottom-#{$i} { padding-bottom: $vertical-spacing*$i;}
+        .padding-md-left-#{$i} { padding-left: $vertical-spacing*$i;}
+        .padding-md-right-#{$i} { padding-right: $vertical-spacing*$i;}
+    }
+}
+@media (min-width: $screen-lg-min) {
+    @for $i from 0 through 10 {
+        .margin-lg-top-#{$i} { margin-top: $vertical-spacing*$i; }
+        .margin-lg-bottom-#{$i} { margin-bottom: $vertical-spacing*$i; }
+        .padding-lg-top-#{$i} { padding-top: $vertical-spacing*$i;}
+        .padding-lg-bottom-#{$i} { padding-bottom: $vertical-spacing*$i;}
+        .padding-lg-left-#{$i} { padding-left: $vertical-spacing*$i;}
+        .padding-lg-right-#{$i} { padding-right: $vertical-spacing*$i;}
+    }
+}
+
+$spacingSteps: 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 60, 80, 100, 120;
+
+//--------4px baseline
+@each $i in $spacingSteps {
+    .m-xs-b-#{$i} { margin-bottom: $i + px; }
+    .p-xs-t-#{$i} { padding-top: $i + px; }
+    .p-xs-b-#{$i} { padding-bottom: $i + px; }
+}
+
+@for $i from 1 through 6 {
+    .p-xs-l-#{nth($spacingSteps, $i)} { padding-left: nth($spacingSteps, $i) + px; }
+    .p-xs-r-#{nth($spacingSteps, $i)} { padding-right: nth($spacingSteps, $i)  + px; }
+}
+
+@media (min-width: $screen-sm-min) {
+    @each $i in $spacingSteps {
+        .m-sm-b-#{$i} { margin-bottom: $i + px; }
+        .p-sm-t-#{$i} { padding-top: $i + px; }
+        .p-sm-b-#{$i} { padding-bottom: $i + px; }
+    }
+
+    @for $i from 1 through 6 {
+        .p-sm-l-#{nth($spacingSteps, $i)} { padding-left: nth($spacingSteps, $i) + px; }
+        .p-sm-r-#{nth($spacingSteps, $i)} { padding-right: nth($spacingSteps, $i)  + px; }
+    }
+}
+
+@media (min-width: $screen-md-min) {
+    @each $i in $spacingSteps {
+        .m-md-b-#{$i} { margin-bottom: $i + px; }
+        .p-md-t-#{$i} { padding-top: $i + px; }
+        .p-md-b-#{$i} { padding-bottom: $i + px; }
+    }
+
+    @for $i from 1 through 6 {
+        .p-md-l-#{nth($spacingSteps, $i)} { padding-left: nth($spacingSteps, $i) + px; }
+        .p-md-r-#{nth($spacingSteps, $i)} { padding-right: nth($spacingSteps, $i)  + px; }
+    }
+}
+
+@media (min-width: $screen-lg-min) {
+    @each $i in $spacingSteps {
+        .m-lg-b-#{$i} { margin-bottom: $i + px; }
+        .p-lg-t-#{$i} { padding-top: $i + px; }
+        .p-lg-b-#{$i} { padding-bottom: $i + px; }
+    }
+
+    @for $i from 1 through 6 {
+        .p-lg-l-#{nth($spacingSteps, $i)} { padding-left: nth($spacingSteps, $i) + px; }
+        .p-lg-r-#{nth($spacingSteps, $i)} { padding-right: nth($spacingSteps, $i)  + px; }
+    }
+}

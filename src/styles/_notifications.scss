@@ -1,0 +1,36 @@
+.notifications-container {
+    display: inline-block;
+    position: fixed;
+    top: $navbar-height + 24;
+    right: 20px;
+    z-index: 1000;
+    text-align: right;
+}
+
+.notification {
+    margin-bottom: 20px;
+    text-align: left;
+    display: inline-block;
+    
+    p {
+        display: inline-block;
+        width: 420px;
+        vertical-align: middle;
+        padding: 0 20px;
+    }
+    
+    span {
+        vertical-align: middle;
+    }    
+    
+    .action {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+}
