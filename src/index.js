@@ -11,10 +11,7 @@ import './styles/_main.scss';
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <div>
-                <i className="icon icon-action-back-dark"></i>
-                <App />
-            </div>
+            <App />
         </ConnectedRouter>
     </Provider>, 
     document.getElementById('root')

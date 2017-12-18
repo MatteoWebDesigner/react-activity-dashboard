@@ -2,6 +2,11 @@
 
 .TopNav {
     height: $navbar-height;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #EAEAEA;
+    background-color: #f8f8f8;
+    z-index: 1;
 }
 
 .TopNav_layout {

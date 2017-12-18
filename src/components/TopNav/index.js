@@ -10,26 +10,24 @@ import './index.scss';
 class TopNav extends Component { 
     render(props) { 
         return (
-            <header className="TopNav">
-                <div className="container-fluid navbar navbar-default navbar-fixed-top">
-                    <div className="TopNav_layout">
-                        <div className="TopNav_menu" onClick={this.props.toogleVisibility}>
-                            <Icon name="menu"/>
-                        </div>
+            <header className="TopNav container-fluid">
+                <div className="TopNav_layout">
+                    <div className="TopNav_menu" onClick={this.props.toogleVisibility}>
+                        <Icon name="menu"/>
+                    </div>
 
-                        <Link to="/" className="TopNav_logo">
-                            <Icon name="logo"/>
-                        </Link>
+                    <Link to="/" className="TopNav_logo">
+                        <Icon name="logo"/>
+                    </Link>
 
-                        <div className="TopNav_connected">
-                            <span className="TopNav_connected-status">Connected</span>
-                            <Icon name="connect-on"/>
-                        </div>
+                    <div className="TopNav_connected">
+                        <span className="TopNav_connected-status">Connected</span>
+                        <Icon name="connect-on"/>
+                    </div>
 
-                        <div className="TopNav_user-picture">
-                            {/*<img src="" alt="user-profile"/>*/}
-                            <Icon name="user_selfie_ph"/>
-                        </div>
+                    <div className="TopNav_user-picture">
+                        {/*<img src="" alt="user-profile"/>*/}
+                        <Icon name="user_selfie_ph"/>
                     </div>
                 </div>
             </header>
