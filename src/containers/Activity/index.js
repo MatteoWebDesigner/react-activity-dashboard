@@ -6,17 +6,23 @@ import Moment from 'react-moment';
 import sortBy from 'lodash/sortBy';
 import groupBy from 'lodash/groupBy';
 import values from 'lodash/values';
+import Modal from 'react-modal';
 import PanelActivityGroup from '../../components/PanelActivityGroup';
 import PanelActivity from '../../components/PanelActivity';
+import Icon from '../../components/Icon'
 
 import './index.scss';
 
 class Home extends Component {
   constructor(props) {
     super(props)
-    this.state = { receipts: [] }
+    this.state = { 
+      receipts: [],
+      showModal: false
+    }
 
     this.fetchReceipts.bind(this);
+    this.handleCloseModal.bind(this);
   }
 
   fetchReceipts() {
@@ -41,13 +47,23 @@ class Home extends Component {
       })
   }
 
+  handleCloseModal() {
+    this.setState({
+      showModal: false
+    });
+  }
+
+  handleOpenModal() {
+    this.setState({
+      showModal: true
+    });
+  }
+
   componentDidMount() {
     this.fetchReceipts();
   }
 
   renderReceipts(receipt, index) {
-    debugger;
-
     let 
       unixDate = receipt.transaction["unix-timestamp"],
       image = receipt.application && (receipt.application.appearance["bg-logo"] || receipt.application.appearance["bg-img"]);
@@ -57,6 +73,7 @@ class Home extends Component {
         key={index} 
         unixDate={unixDate}
         image={image}
+        handleClick={this.handleOpenModal.bind(this)}
       />
     );
   }
@@ -82,6 +99,41 @@ class Home extends Component {
         <p>See a record of everyone you have shared details with.</p>
 
         {this.state.receipts.map(this.renderReceiptsGroup.bind(this))}
+
+        <Modal
+          isOpen={this.state.showModal}
+          onRequestClose={this.handleCloseModal.bind(this)}
+          shouldCloseOnOverlayClick={true}
+          ariaHideApp={false}
+          className="Activity_modal"
+          overlayClassName="Activity_modal-overlay"
+        >
+          <div className="Activity_modal-close" onClick={this.handleCloseModal.bind(this)}>
+            {/* I cannot find the icon */}
+            {/*<Icon name="?"/>*/}
+            x
+          </div>
+          
+          <div>
+            <img src=""/>
+          </div>
+          <div>
+            <img src=""/>
+            <Icon name="activity_tick"/>
+            <h3>Simple Yoti SDK App</h3>
+
+            <p>viewed this information about you</p>
+            at <Moment unix format="hh:mm"></Moment> on <Moment unix format="DD MMMM YYYY"></Moment>
+
+            <hr/>
+
+            Given name(s)
+            MAX
+
+            Mobile number
+            +456464
+          </div>
+        </Modal>
       </div>
     )
   }

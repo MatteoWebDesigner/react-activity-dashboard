@@ -5,16 +5,9 @@ import Icon from '../Icon';
 import './index.scss';
 
 class PanelActivity extends Component {
-  constructor(props) {
-    super(props)
-    //this.state = { receipts: [] }
-  }
-
   render() {
-    debugger;
-
     return (
-      <div className="PanelActivity">
+      <div className="PanelActivity" onClick={this.props.handleClick}>
         <Icon name="activity_tick"/>
 
         <div className="PanelActivity_user-picture">
