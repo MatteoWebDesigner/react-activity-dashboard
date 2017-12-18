@@ -31,6 +31,8 @@
     "html-webpack-plugin": "2.29.0",
     "http-proxy-middleware": "^0.17.4",
     "jest": "20.0.4",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -39,6 +41,7 @@
     "react": "^16.2.0",
     "react-dev-utils": "^4.2.1",
     "react-dom": "^16.2.0",
+    "react-moment": "^0.6.8",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
@@ -103,6 +106,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "expose-loader": "^0.7.4",
     "json-server": "^0.12.1",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6"

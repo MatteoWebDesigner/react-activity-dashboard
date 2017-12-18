@@ -1,0 +1,25 @@
+@import "../../styles/_yoti-variables";
+
+.PanelActivityGroup {
+
+}
+
+.PanelActivityGroup_header {
+    padding: 10px 20px;
+    border: 1px solid $color-grey-2;
+    font-size: 16px;
+    color: $color-primary-3;
+    background-color: $color-grey-1;
+}
+
+.PanelActivityGroup_body {
+
+}
+
+.PanelActivityGroup_item {
+    border-bottom: 1px solid $color-15;
+    border-left: 1px solid $color-15;
+    border-right: 1px solid $color-15;
+    padding: 15px 20px;
+    position: relative;
+}
