@@ -4,11 +4,6 @@ import Moment from 'react-moment';
 import './index.scss';
 
 class PanelActivityGroup extends Component {
-  constructor(props) {
-    super(props)
-    //this.state = { receipts: [] }
-  }
-
   renderItems(item, index) {
     return (<div className="PanelActivityGroup_item" key={index}>{item}</div>);
   }

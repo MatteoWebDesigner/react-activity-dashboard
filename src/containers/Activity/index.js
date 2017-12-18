@@ -48,14 +48,20 @@ class Home extends Component {
   renderReceipts(receipt, index) {
     debugger;
 
+    let 
+      unixDate = receipt.transaction["unix-timestamp"],
+      image = receipt.application && (receipt.application.appearance["bg-logo"] || receipt.application.appearance["bg-img"]);
+
     return (
-      <PanelActivity key={index}/>
+      <PanelActivity 
+        key={index} 
+        unixDate={unixDate}
+        image={image}
+      />
     );
   }
 
   renderReceiptsGroup(receiptGroup, index) {
-    debugger;
-
     let unixDate = receiptGroup[0].transaction["unix-timestamp"];
 
     return (
