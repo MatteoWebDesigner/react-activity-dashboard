@@ -26,7 +26,7 @@ class TopNav extends Component {
                     </div>
 
                     <div className="TopNav_user-picture">
-                        {/*<img src="" alt="user-profile"/>*/}
+                        {/*<img src="/assets/elon_musk.jpg" alt="user-profile"/>*/}
                         <Icon name="user_selfie_ph"/>
                     </div>
                 </div>

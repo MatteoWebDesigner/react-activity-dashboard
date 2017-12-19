@@ -1,79 +1,47 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
 import moment from 'moment';
-import Moment from 'react-moment';
 import sortBy from 'lodash/sortBy';
 import groupBy from 'lodash/groupBy';
 import values from 'lodash/values';
-import Modal from 'react-modal';
+
+import { openModalActivity } from '../../store/actions/modalActivity';
+import { fetchActivityReceipts } from '../../store/actions/activityReceipts';
+
+import ModalActivity from '../../containers/ModalActivity';
 import PanelActivityGroup from '../../components/PanelActivityGroup';
 import PanelActivity from '../../components/PanelActivity';
-import Icon from '../../components/Icon'
 
 import './index.scss';
 
-class Home extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { 
-      receipts: [],
-      showModal: false
-    }
-
-    this.fetchReceipts.bind(this);
-    this.handleCloseModal.bind(this);
-  }
-
-  fetchReceipts() {
-    return fetch('/api/receipts/')
-      .then(res => res.json())
-      .then(receipts => {
-
-        let sortChronologicallyRecentFirst = sortBy(receipts, function(receipt) { 
-          let momentUnix = moment.unix(receipt.transaction["unix-timestamp"]);
-          receipt.date = momentUnix.format("DD MMMM YYYY  hh:mm:ss"); // DEBUG
-          return new moment(momentUnix); 
-        })
-        .reverse()
-
-        let groupByDate = groupBy(sortChronologicallyRecentFirst, function (receipt) {
-          return moment.unix(receipt.transaction["unix-timestamp"]).startOf('day').format();
-        });
-
-        let collectionGroupByDate = values(groupByDate);
-
-        this.setState({ receipts: collectionGroupByDate });
-      })
-  }
-
-  handleCloseModal() {
-    this.setState({
-      showModal: false
-    });
-  }
-
-  handleOpenModal() {
-    this.setState({
-      showModal: true
-    });
+class Activity extends Component {
+  handleSelection(id) {
+    this.props.openModalActivity(id, this.props.receipts);
   }
 
   componentDidMount() {
-    this.fetchReceipts();
+    this.props.fetchActivityReceipts();
   }
 
   renderReceipts(receipt, index) {
     let 
+      id = receipt.id,
       unixDate = receipt.transaction["unix-timestamp"],
-      image = receipt.application && (receipt.application.appearance["bg-logo"] || receipt.application.appearance["bg-img"]);
+      image = receipt.application && (receipt.application.appearance["bg-logo"] || receipt.application.appearance["bg-img"]),
+      type = receipt.type,
+      applicationName = receipt.application && receipt.application.name;
 
     return (
       <PanelActivity 
-        key={index} 
+        key={id} 
+        id={id} 
+        type={type}
+        applicationName={applicationName}
         unixDate={unixDate}
         image={image}
-        handleClick={this.handleOpenModal.bind(this)}
+        handleClick={this.handleSelection.bind(this)}
       />
     );
   }
@@ -98,49 +66,44 @@ class Home extends Component {
         <h2 className="Activity_sub-title">Activity</h2>
         <p>See a record of everyone you have shared details with.</p>
 
-        {this.state.receipts.map(this.renderReceiptsGroup.bind(this))}
+        {this.props.receiptsGroupByDay.map(this.renderReceiptsGroup.bind(this))}
 
-        <Modal
-          isOpen={this.state.showModal}
-          onRequestClose={this.handleCloseModal.bind(this)}
-          shouldCloseOnOverlayClick={true}
-          ariaHideApp={false}
-          className="Activity_modal"
-          overlayClassName="Activity_modal-overlay"
-        >
-          <div className="Activity_modal-close" onClick={this.handleCloseModal.bind(this)}>
-            {/* I cannot find the icon */}
-            {/*<Icon name="?"/>*/}
-            x
-          </div>
-          
-          <div>
-            <img src=""/>
-          </div>
-          <div>
-            <img src=""/>
-            <Icon name="activity_tick"/>
-            <h3>Simple Yoti SDK App</h3>
-
-            <p>viewed this information about you</p>
-            at <Moment unix format="hh:mm"></Moment> on <Moment unix format="DD MMMM YYYY"></Moment>
-
-            <hr/>
-
-            Given name(s)
-            MAX
-
-            Mobile number
-            +456464
-          </div>
-        </Modal>
+        {/* I could use React portal, but it's not worth it yet */}
+        <ModalActivity
+          handleClose={this.props.closeModalActivity}
+        />
       </div>
     )
   }
 }
 
+function receiptsCollectionGroupByDay(receipts) {
+  let sortChronologicallyRecentFirst = sortBy(receipts, function(receipt) { 
+    let momentUnix = moment.unix(receipt.transaction["unix-timestamp"]);
+    receipt.date = momentUnix.format("DD MMMM YYYY  hh:mm:ss"); // DEBUG
+    return new moment(momentUnix); 
+  })
+  .reverse()
+
+  let groupByDate = groupBy(sortChronologicallyRecentFirst, function (receipt) {
+    return moment.unix(receipt.transaction["unix-timestamp"]).startOf('day').format();
+  });
+
+  let collectionGroupByDate = values(groupByDate);
+
+  return collectionGroupByDate
+}
+
+const mapStateToProps = (state) => {
+  return {
+    receipts: state.activityReceipts.collection,
+    receiptsGroupByDay: receiptsCollectionGroupByDay(state.activityReceipts.collection)
+  }
+}
+
 const mapDispatchToProps = dispatch => bindActionCreators({
-  
+  openModalActivity,
+  fetchActivityReceipts
 }, dispatch)
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Activity);
