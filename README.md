@@ -1,5 +1,5 @@
 # React activity dashboard
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 
 # Setup
 Node: v8.9.3
